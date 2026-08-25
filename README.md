@@ -9,10 +9,10 @@
   <!-- Social Media Section -->
   <h2><img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&pause=1000&color=CA05C3&background=69FF2000&center=true&vCenter=true&repeat=false&width=435&lines=Social+Media's" alt="Typing SVG" /></h2>
   <p>
-    <a href="https://discord.com/users/" target="_blank"><img src="https://img.shields.io/badge/Discord%20-7289DA.svg?&style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+    <a href="https://discord.com/users/385702" target="_blank"><img src="https://img.shields.io/badge/Discord%20-7289DA.svg?&style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
     <a href="https://www.github.com/WaseJS" target="_blank"><img src="https://img.shields.io/badge/GitHub%20-191717.svg?&style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
     <a href="https://open.spotify.com/user/31eire5dyfxodt3so5ux2x5t6n24" target="_blank"><img src="https://img.shields.io/badge/Spotify%20-1ed760.svg?&style=for-the-badge&logo=spotify&logoColor=white" alt="Spotify"></a>
-    <a href="https://www.instagram.com/wasetrox" target="_blank"><img src="https://img.shields.io/badge/INSTAGRAM%20-DC3175.svg?&style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
+    <a href="https://www.instagram.com/wase.js" target="_blank"><img src="https://img.shields.io/badge/INSTAGRAM%20-DC3175.svg?&style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
   </p>
 
   <!-- Discord Server Section (Animated) 
@@ -47,11 +47,11 @@
     <img src="https://skillicons.dev/icons?i=powershell,vscode,visualstudio&theme=dark" />
   </p>
 
-  <!-- Discord Account Section 
+  <!-- Discord Account Section -->
   <h1><img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&pause=1000&color=326EFF&background=69FF2000&center=true&vCenter=true&repeat=false&width=435&lines=+My+Discord+Account's" alt="Typing SVG" /></h1>
   <p>
-    <a href="https://discord.com/users/312062402273345537"><img width="400px" src="https://lanyard.kyrie25.dev/api/312062402273345537?decoration=true&useDisplayName=true&animationDuration=2s&waveColor=3256a8&imgStyle=square&imgBorderRadius=16px&bg=DD272700&idle" alt="Discord Profile"></a>
-  </p> -->
+    <a href="https://discord.com/users/1495705032908079145"><img width="400px" src="https://lanyard.kyrie25.dev/api/312062402273345537?decoration=true&useDisplayName=true&animationDuration=2s&waveColor=3256a8&imgStyle=square&imgBorderRadius=16px&bg=DD272700&idle" alt="Discord Profile"></a>
+  </p> 
 
   <!-- GitHub Stats Section -->
   <h1><img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&pause=1000&color=326EFF&background=69FF2000&center=true&vCenter=true&repeat=false&width=435&lines=+Github+Stat's" alt="Typing SVG" /></h1>
