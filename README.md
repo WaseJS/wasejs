@@ -50,15 +50,27 @@
   <!-- Discord Account Section -->
   <h1><img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&pause=1000&color=326EFF&background=69FF2000&center=true&vCenter=true&repeat=false&width=435&lines=+My+Discord+Account's" alt="Typing SVG" /></h1>
   <p>
-    <a href="https://discord.com/users/1495705032908079145"><img width="400px" src="https://lanyard.kyrie25.dev/api/312062402273345537?decoration=true&useDisplayName=true&animationDuration=2s&waveColor=3256a8&imgStyle=square&imgBorderRadius=16px&bg=DD272700&idle" alt="Discord Profile"></a>
+    <a href="https://discord.com/users/1495705032908079145"><img width="400px" src="https://lanyard.kyrie25.dev/api/1495705032908079145?decoration=true&useDisplayName=true&animationDuration=2s&waveColor=3256a8&imgStyle=square&imgBorderRadius=16px&bg=DD272700&idle" alt="Discord Profile"></a>
   </p> 
 
-  <!-- GitHub Stats Section -->
-  <h1><img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&pause=1000&color=326EFF&background=69FF2000&center=true&vCenter=true&repeat=false&width=435&lines=+Github+Stat's" alt="Typing SVG" /></h1>
-  <p>
-    <img src="https://github-readme-stats.vercel.app/api?username=WaseJS&count_private=true&show_icons=true&theme=midnight-purple&hide_border=true" width="48%" alt="GitHub Stats" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=WaseJS&layout=compact&show_icons=true&theme=midnight-purple&hide_border=true" width="38%" alt="Top Languages" />
-  </p>
+<!-- GitHub Stats Section -->
+<h1>
+  <img
+    src="https://readme-typing-svg.herokuapp.com?font=Pacifico&pause=1000&color=326EFF&background=69FF2000&center=true&vCenter=true&repeat=false&width=435&lines=GitHub+Stats"
+    alt="GitHub Stats"
+  />
+</h1>
 
-  </a>
-</div>
+<p align="center">
+  <img
+    src="https://github-readme-stats-fast.vercel.app/api?username=WaseJS&show_icons=true&theme=midnight-purple&hide_border=true"
+    width="48%"
+    alt="WaseJS GitHub Stats"
+  />
+  
+  <img
+    src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=WaseJS&layout=compact&langs_count=8&theme=midnight-purple&hide_border=true"
+    width="38%"
+    alt="WaseJS Top Languages"
+  />
+</p>
