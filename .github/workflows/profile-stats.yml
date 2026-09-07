@@ -1,0 +1,130 @@
+name: Generate Profile Stats
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 */6 * * *"
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
+      - name: Generate local profile cards
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const data = await github.graphql(`
+              query {
+                viewer {
+                  login
+                  name
+                  followers { totalCount }
+                  repositories(first: 100, ownerAffiliations: OWNER, privacy: PUBLIC) {
+                    totalCount
+                    nodes {
+                      name
+                      stargazerCount
+                      primaryLanguage { name }
+                    }
+                  }
+                  contributionsCollection {
+                    contributionCalendar {
+                      totalContributions
+                      weeks {
+                        contributionDays { date contributionCount }
+                      }
+                    }
+                  }
+                }
+              }
+            `);
+
+            const viewer = data.viewer;
+            const repos = viewer.repositories.nodes.filter(Boolean);
+            const calendar = viewer.contributionsCollection.contributionCalendar;
+            const days = calendar.weeks.flatMap(w => w.contributionDays);
+            const esc = s => String(s).replace(/[&<>\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
+            const fmt = n => Number(n || 0).toLocaleString('en-US');
+
+            let current = 0;
+            let longest = 0;
+            let run = 0;
+            for (const day of days) {
+              if (day.contributionCount > 0) { run++; longest = Math.max(longest, run); }
+              else run = 0;
+            }
+            for (let i = days.length - 1; i >= 0; i--) {
+              if (days[i].contributionCount > 0) current++;
+              else break;
+            }
+
+            const stars = repos.reduce((sum, r) => sum + r.stargazerCount, 0);
+            const langCounts = {};
+            for (const repo of repos) {
+              const lang = repo.primaryLanguage?.name;
+              if (lang) langCounts[lang] = (langCounts[lang] || 0) + 1;
+            }
+            const languages = Object.entries(langCounts).sort((a,b) => b[1] - a[1]).slice(0, 6);
+            const maxLang = Math.max(1, ...languages.map(x => x[1]));
+
+            const base = '#0d1117';
+            const panel = '#161b22';
+            const border = '#30363d';
+            const text = '#e6edf3';
+            const muted = '#8b949e';
+            const cyan = '#00d9ff';
+            const purple = '#9d5cff';
+            const green = '#39d353';
+
+            const statsSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300"><rect width="760" height="300" rx="18" fill="${base}" stroke="${border}"/><text x="34" y="45" fill="${cyan}" font-family="Arial,sans-serif" font-size="22" font-weight="700">WaseJS · GitHub Statistics</text><text x="34" y="70" fill="${muted}" font-family="Arial,sans-serif" font-size="13">Live data generated inside this repository</text><g font-family="Arial,sans-serif"><rect x="34" y="94" width="214" height="82" rx="12" fill="${panel}"/><text x="54" y="120" fill="${muted}" font-size="12">CONTRIBUTIONS</text><text x="54" y="155" fill="${text}" font-size="28" font-weight="700">${fmt(calendar.totalContributions)}</text><rect x="273" y="94" width="214" height="82" rx="12" fill="${panel}"/><text x="293" y="120" fill="${muted}" font-size="12">PUBLIC REPOS</text><text x="293" y="155" fill="${text}" font-size="28" font-weight="700">${fmt(viewer.repositories.totalCount)}</text><rect x="512" y="94" width="214" height="82" rx="12" fill="${panel}"/><text x="532" y="120" fill="${muted}" font-size="12">STARS</text><text x="532" y="155" fill="${text}" font-size="28" font-weight="700">${fmt(stars)}</text><rect x="34" y="196" width="333" height="70" rx="12" fill="${panel}"/><text x="54" y="221" fill="${muted}" font-size="12">FOLLOWERS</text><text x="54" y="249" fill="${purple}" font-size="24" font-weight="700">${fmt(viewer.followers.totalCount)}</text><rect x="393" y="196" width="333" height="70" rx="12" fill="${panel}"/><text x="413" y="221" fill="${muted}" font-size="12">PROFILE STATUS</text><text x="413" y="249" fill="${green}" font-size="20" font-weight="700">● ONLINE · BUILDING</text></g></svg>`;
+
+            const langRows = languages.length ? languages.map(([name,count], i) => {
+              const y = 92 + i * 28;
+              const width = Math.max(8, Math.round((count / maxLang) * 420));
+              return `<text x="34" y="${y}" fill="${text}" font-family="Arial,sans-serif" font-size="13">${esc(name)}</text><rect x="145" y="${y-13}" width="420" height="10" rx="5" fill="#21262d"/><rect x="145" y="${y-13}" width="${width}" height="10" rx="5" fill="${i % 2 ? purple : cyan}"/><text x="585" y="${y}" fill="${muted}" font-family="monospace" font-size="12">${count} repo${count === 1 ? '' : 's'}</text>`;
+            }).join('') : `<text x="34" y="105" fill="${muted}" font-family="Arial,sans-serif" font-size="14">No public language data yet.</text>`;
+            const langsSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="660" height="280" viewBox="0 0 660 280"><rect width="660" height="280" rx="18" fill="${base}" stroke="${border}"/><text x="34" y="48" fill="${cyan}" font-family="Arial,sans-serif" font-size="22" font-weight="700">Top Languages</text><text x="34" y="70" fill="${muted}" font-family="Arial,sans-serif" font-size="13">Primary language by public repository</text>${langRows}</svg>`;
+
+            const streakSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="760" height="190" viewBox="0 0 760 190"><rect width="760" height="190" rx="18" fill="#171927" stroke="${border}"/><text x="34" y="44" fill="${purple}" font-family="Arial,sans-serif" font-size="22" font-weight="700">Contribution Streak</text><g font-family="Arial,sans-serif"><text x="44" y="92" fill="${muted}" font-size="12">TOTAL CONTRIBUTIONS</text><text x="44" y="127" fill="${text}" font-size="28" font-weight="700">${fmt(calendar.totalContributions)}</text><text x="275" y="92" fill="${muted}" font-size="12">CURRENT STREAK</text><text x="275" y="127" fill="${cyan}" font-size="28" font-weight="700">${current} day${current === 1 ? '' : 's'}</text><text x="500" y="92" fill="${muted}" font-size="12">LONGEST STREAK</text><text x="500" y="127" fill="${green}" font-size="28" font-weight="700">${longest} day${longest === 1 ? '' : 's'}</text></g><text x="44" y="160" fill="${muted}" font-family="monospace" font-size="11">Updated automatically · GitHub contribution calendar</text></svg>`;
+
+            const cells = days.slice(-371);
+            const cellSize = 11, gap = 3, left = 28, top = 72;
+            const maxContribution = Math.max(1, ...cells.map(d => d.contributionCount));
+            const rects = cells.map((d, i) => {
+              const x = left + Math.floor(i / 7) * (cellSize + gap);
+              const y = top + (i % 7) * (cellSize + gap);
+              const n = d.contributionCount;
+              const opacity = n === 0 ? 0.12 : 0.35 + 0.65 * (n / maxContribution);
+              return `<rect x="${x}" y="${y}" width="${cellSize}" height="${cellSize}" rx="2" fill="${green}" opacity="${opacity.toFixed(2)}"><title>${esc(d.date)} · ${n} contribution${n === 1 ? '' : 's'}</title></rect>`;
+            }).join('');
+            const snakeStartX = left;
+            const snakeEndX = left + (Math.floor((cells.length - 1) / 7)) * (cellSize + gap) + cellSize / 2;
+            const snakePath = `M ${snakeStartX} ${top + cellSize/2} C ${snakeStartX + 180} ${top - 35}, ${snakeEndX - 180} ${top + 110}, ${snakeEndX} ${top + 3*(cellSize+gap)}`;
+            const snakeSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="180" viewBox="0 0 900 180"><rect width="900" height="180" rx="16" fill="${base}" stroke="${border}"/><text x="28" y="40" fill="${cyan}" font-family="Arial,sans-serif" font-size="21" font-weight="700">Contribution Snake</text>${rects}<path d="${snakePath}" fill="none" stroke="${purple}" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"><animate attributeName="stroke-dashoffset" from="0" to="-120" dur="2s" repeatCount="indefinite"/></path><circle cx="${snakeEndX}" cy="${top + 3*(cellSize+gap)}" r="7" fill="${cyan}"><animate attributeName="r" values="7;9;7" dur="1s" repeatCount="indefinite"/></circle></svg>`;
+
+            fs.mkdirSync('assets', { recursive: true });
+            fs.writeFileSync('assets/github-stats.svg', statsSvg);
+            fs.writeFileSync('assets/top-languages.svg', langsSvg);
+            fs.writeFileSync('assets/github-streak.svg', streakSvg);
+            fs.writeFileSync('assets/contribution-snake.svg', snakeSvg);
+
+      - name: Commit generated cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/*.svg
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: refresh profile statistics"
+          git push
