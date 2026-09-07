@@ -2,6 +2,8 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&height=280&section=header&text=WASE.&fontSize=86&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=DEVELOPER%20%E2%80%A2%20DESIGNER%20%E2%80%A2%20BUILDER&descAlignY=61&descSize=18&descColor=ffffff" alt="Wase banner"/>
 
+<img src="./assets/instant-status.svg?v=2" width="92%" alt="Instant GitHub status"/>
+
 <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=21&duration=2400&pause=700&color=9D5CFF&center=true&vCenter=true&repeat=true&width=850&height=55&lines=SYSTEM+STATUS%3A+ONLINE;BUILDING+SOMETHING+NEW...;JAVASCRIPT+%7C+NODE.JS+%7C+NEXT.JS+%7C+PYTHON;DISCORD+%7C+APIS+%7C+WEB+%7C+AUTOMATION;CODE.+DESIGN.+BUILD.+REPEAT." alt="Animated status"/>
 
 <br>
@@ -202,16 +204,32 @@ workflow:
 
 <div align="center">
 
+<img src="./assets/instant-status.svg?v=2" width="92%" alt="Instant GitHub status"/>
+
 <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=18&duration=2200&pause=700&color=00D9FF&center=true&vCenter=true&repeat=true&width=700&height=40&lines=SYNCING+GITHUB+DATA...;ANALYZING+ACTIVITY...;CALCULATING+STREAKS...;STATUS%3A+ACTIVE" alt="Animated GitHub status"/>
 
 <br/><br/>
 
-<a href="https://github.com/WaseJS"><img src="./assets/github-stats.svg" width="49%" alt="GitHub statistics"/></a>
-<a href="https://github.com/WaseJS"><img src="./assets/top-languages.svg" width="43%" alt="Top languages"/></a>
+<a href="https://github.com/WaseJS"><img src="./assets/github-stats.svg?v=4" width="49%" alt="GitHub statistics"/></a>
+<a href="https://github.com/WaseJS"><img src="./assets/top-languages.svg?v=4" width="43%" alt="Top languages"/></a>
 
 <br/><br/>
 
-<img src="./assets/github-streak.svg" width="70%" alt="GitHub contribution streak"/>
+<img src="./assets/github-streak.svg?v=4" width="70%" alt="GitHub contribution streak"/>
+
+</div>
+
+---
+
+# 🎌 Anime Mode
+
+<div align="center">
+
+<img src="./assets/anime-cyber.svg?v=2" width="95%" alt="Wase cyber anime visual"/>
+
+<br/>
+
+<sub>Local animated SVG • no external anime image dependency.</sub>
 
 </div>
 
@@ -221,7 +239,7 @@ workflow:
 
 <div align="center">
 
-<img src="./assets/contribution-snake.svg" width="95%" alt="GitHub contribution snake"/>
+<img src="./assets/contribution-snake.svg?v=4" width="95%" alt="GitHub contribution snake"/>
 
 <br/>
 
