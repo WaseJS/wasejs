@@ -205,16 +205,16 @@ workflow:
 
 <div align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=18&duration=2200&pause=700&color=00D9FF&center=true&vCenter=true&repeat=true&width=700&height=40&lines=FETCHING+GITHUB+DATA...;ANALYZING+ACTIVITY...;LOADING+STATISTICS...;STATUS%3A+ACTIVE" alt="Animated GitHub status"/>
+<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=18&duration=2200&pause=700&color=00D9FF&center=true&vCenter=true&repeat=true&width=700&height=40&lines=SYNCING+GITHUB+DATA...;ANALYZING+ACTIVITY...;CALCULATING+STREAKS...;STATUS%3A+ACTIVE" alt="Animated GitHub status"/>
 
 <br/><br/>
 
-<img src="https://github-readme-stats.vercel.app/api?username=WaseJS&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&theme=tokyonight&hide_border=true&custom_title=WaseJS%20GitHub%20Statistics" width="49%" alt="GitHub statistics"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=WaseJS&layout=compact&langs_count=10&theme=tokyonight&hide_border=true&custom_title=Most%20Used%20Languages" width="42%" alt="Top languages"/>
+<a href="https://github.com/WaseJS"><img src="https://raw.githubusercontent.com/WaseJS/WaseJS/main/assets/github-stats.svg" width="49%" alt="GitHub statistics"/></a>
+<a href="https://github.com/WaseJS"><img src="https://raw.githubusercontent.com/WaseJS/WaseJS/main/assets/top-languages.svg" width="43%" alt="Top languages"/></a>
 
 <br/><br/>
 
-<img src="https://streak-stats.demolab.com?user=WaseJS&theme=tokyonight&hide_border=true&border_radius=12" width="65%" alt="GitHub streak"/>
+<img src="https://raw.githubusercontent.com/WaseJS/WaseJS/main/assets/github-streak.svg" width="70%" alt="GitHub contribution streak"/>
 
 </div>
 
@@ -224,11 +224,11 @@ workflow:
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/WaseJS/WaseJS/output/github-contribution-grid-snake-dark.svg" width="95%" alt="GitHub contribution snake"/>
+<img src="https://raw.githubusercontent.com/WaseJS/WaseJS/main/assets/contribution-snake.svg" width="95%" alt="GitHub contribution snake"/>
 
 <br/>
 
-<sub>Generated automatically by GitHub Actions.</sub>
+<sub>Generated automatically by GitHub Actions from the GitHub contribution calendar.</sub>
 
 </div>
 
