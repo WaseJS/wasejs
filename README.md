@@ -206,12 +206,12 @@ workflow:
 
 <br/><br/>
 
-<a href="https://github.com/WaseJS"><img src="https://raw.githubusercontent.com/WaseJS/WaseJS/main/assets/github-stats.svg" width="49%" alt="GitHub statistics"/></a>
-<a href="https://github.com/WaseJS"><img src="https://raw.githubusercontent.com/WaseJS/WaseJS/main/assets/top-languages.svg" width="43%" alt="Top languages"/></a>
+<a href="https://github.com/WaseJS"><img src="./assets/github-stats.svg" width="49%" alt="GitHub statistics"/></a>
+<a href="https://github.com/WaseJS"><img src="./assets/top-languages.svg" width="43%" alt="Top languages"/></a>
 
 <br/><br/>
 
-<img src="https://raw.githubusercontent.com/WaseJS/WaseJS/main/assets/github-streak.svg" width="70%" alt="GitHub contribution streak"/>
+<img src="./assets/github-streak.svg" width="70%" alt="GitHub contribution streak"/>
 
 </div>
 
@@ -221,7 +221,7 @@ workflow:
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/WaseJS/WaseJS/main/assets/contribution-snake.svg" width="95%" alt="GitHub contribution snake"/>
+<img src="./assets/contribution-snake.svg" width="95%" alt="GitHub contribution snake"/>
 
 <br/>
 
