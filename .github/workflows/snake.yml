@@ -1,9 +1,9 @@
-name: Generate Contribution Snake
+name: Generate Contribution Snake Game
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "23 */12 * * *"
+    - cron: "17 0 * * *"
 
 permissions:
   contents: write
@@ -12,15 +12,16 @@ jobs:
   snake:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate snake
-        uses: Platane/snk/svg-only@v3
+      - name: Generate animated snake game
+        uses: Platane/snk@v3
         with:
           github_user_name: WaseJS
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-snake.svg?palette=github-dark&color_snake=%2300D9FF
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=%239D5CFF
+            dist/github-snake.gif?color_snake=%2300D9FF&color_dots=%230D1117%2C%23161B22%2C%2300D9FF%2C%237C3AED%2C%23FFFFFF&color_background=%230D1117
 
-      - name: Publish snake
+      - name: Publish generated game
         uses: crazy-max/ghaction-github-pages@v4
         with:
           build_dir: dist
