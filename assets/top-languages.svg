@@ -1,1 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="250" viewBox="0 0 760 250"><rect width="760" height="250" rx="18" fill="#0d1117" stroke="#30363d"/><text x="38" y="58" fill="#00d9ff" font-family="Arial,sans-serif" font-size="24" font-weight="700">Top Languages</text><text x="38" y="100" fill="#8b949e" font-family="Arial,sans-serif" font-size="16">Primary languages across public repositories.</text><text x="38" y="145" fill="#c9d1d9" font-family="Arial,sans-serif" font-size="18">ANALYZING LANGUAGE DATA...</text><rect x="38" y="174" width="600" height="10" rx="5" fill="#21262d"><animate attributeName="width" values="120;600;120" dur="2.2s" repeatCount="indefinite"/></rect><text x="38" y="220" fill="#6e7681" font-family="monospace" font-size="13">WaseJS / profile-stats</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="250" viewBox="0 0 760 250">
+<defs><linearGradient id="g"><stop stop-color="#00d9ff"/><stop offset="1" stop-color="#9d5cff"/></linearGradient></defs>
+<rect width="760" height="250" rx="18" fill="#0d1117" stroke="#30363d"/>
+<text x="34" y="43" fill="#00d9ff" font-family="Arial,sans-serif" font-size="22" font-weight="700">Top Languages</text>
+<text x="34" y="67" fill="#8b949e" font-family="Arial,sans-serif" font-size="13">Primary language across public repositories</text>
+<g font-family="Arial,sans-serif">
+<text x="34" y="104" fill="#e6edf3" font-size="14" font-weight="700">JavaScript</text>
+<rect x="145" y="93" width="480" height="13" rx="6" fill="#21262d"/>
+<rect x="145" y="93" width="480" height="13" rx="6" fill="url(#g)"><animate attributeName="width" values="35;480;430;480" dur="2.4s" repeatCount="indefinite"/></rect>
+<text x="640" y="104" fill="#8b949e" font-size="12">PRIMARY</text>
+<text x="34" y="145" fill="#e6edf3" font-size="14" font-weight="700">TypeScript</text>
+<rect x="145" y="134" width="480" height="13" rx="6" fill="#21262d"/>
+<rect x="145" y="134" width="250" height="13" rx="6" fill="#7c3aed"><animate attributeName="width" values="20;250;190;250" dur="2.7s" repeatCount="indefinite"/></rect>
+<text x="640" y="145" fill="#8b949e" font-size="12">STACK</text>
+<text x="34" y="186" fill="#e6edf3" font-size="14" font-weight="700">Python</text>
+<rect x="145" y="175" width="480" height="13" rx="6" fill="#21262d"/>
+<rect x="145" y="175" width="145" height="13" rx="6" fill="#00d9ff"><animate attributeName="width" values="10;145;95;145" dur="3s" repeatCount="indefinite"/></rect>
+<text x="640" y="186" fill="#8b949e" font-size="12">TOOLS</text>
+</g>
+<text x="34" y="220" fill="#6e7681" font-family="monospace" font-size="11">SYNC ENGINE · ONLINE</text>
+<circle cx="690" cy="216" r="6" fill="#39d353"><animate attributeName="opacity" values="1;.2;1" dur="1.2s" repeatCount="indefinite"/></circle>
+</svg>
