@@ -1,24 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330">
 <defs>
- <linearGradient id="g" x1="0" x2="1"><stop stop-color="#00d9ff"/><stop offset=".5" stop-color="#9d5cff"/><stop offset="1" stop-color="#39d353"/></linearGradient>
- <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#080b12"/><stop offset="1" stop-color="#15102a"/></linearGradient>
+ <linearGradient id="snake" x1="0" x2="1"><stop stop-color="#00d9ff"/><stop offset=".55" stop-color="#7c3aed"/><stop offset="1" stop-color="#b44cff"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="foodGlow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#242938" stroke-width="1"/></pattern>
+ <path id="route" d="M100 100 H760 V250 H100 V100 H420 V160 H700" fill="none"/>
 </defs>
-<rect width="900" height="220" rx="18" fill="#0d1117" stroke="#30363d"/>
-<text x="30" y="40" fill="#00d9ff" font-family="Arial,sans-serif" font-size="21" font-weight="700">Contribution Snake</text>
-<text x="30" y="61" fill="#8b949e" font-family="Arial,sans-serif" font-size="11">Animated contribution activity · refreshed by GitHub Actions</text>
-<g transform="translate(30,78)">
-<g fill="#21262d">
-<rect x="0" y="0" width="12" height="12" rx="2"/><rect x="18" y="0" width="12" height="12" rx="2"/><rect x="36" y="0" width="12" height="12" rx="2"/><rect x="54" y="0" width="12" height="12" rx="2"/><rect x="72" y="0" width="12" height="12" rx="2"/><rect x="90" y="0" width="12" height="12" rx="2"/><rect x="108" y="0" width="12" height="12" rx="2"/><rect x="126" y="0" width="12" height="12" rx="2"/><rect x="144" y="0" width="12" height="12" rx="2"/><rect x="162" y="0" width="12" height="12" rx="2"/><rect x="180" y="0" width="12" height="12" rx="2"/><rect x="198" y="0" width="12" height="12" rx="2"/><rect x="216" y="0" width="12" height="12" rx="2"/><rect x="234" y="0" width="12" height="12" rx="2"/><rect x="252" y="0" width="12" height="12" rx="2"/><rect x="270" y="0" width="12" height="12" rx="2"/><rect x="288" y="0" width="12" height="12" rx="2"/><rect x="306" y="0" width="12" height="12" rx="2"/><rect x="324" y="0" width="12" height="12" rx="2"/><rect x="342" y="0" width="12" height="12" rx="2"/><rect x="360" y="0" width="12" height="12" rx="2"/><rect x="378" y="0" width="12" height="12" rx="2"/><rect x="396" y="0" width="12" height="12" rx="2"/><rect x="414" y="0" width="12" height="12" rx="2"/><rect x="432" y="0" width="12" height="12" rx="2"/><rect x="450" y="0" width="12" height="12" rx="2"/><rect x="468" y="0" width="12" height="12" rx="2"/><rect x="486" y="0" width="12" height="12" rx="2"/><rect x="504" y="0" width="12" height="12" rx="2"/><rect x="522" y="0" width="12" height="12" rx="2"/><rect x="540" y="0" width="12" height="12" rx="2"/><rect x="558" y="0" width="12" height="12" rx="2"/><rect x="576" y="0" width="12" height="12" rx="2"/><rect x="594" y="0" width="12" height="12" rx="2"/><rect x="612" y="0" width="12" height="12" rx="2"/><rect x="630" y="0" width="12" height="12" rx="2"/><rect x="648" y="0" width="12" height="12" rx="2"/><rect x="666" y="0" width="12" height="12" rx="2"/><rect x="684" y="0" width="12" height="12" rx="2"/><rect x="702" y="0" width="12" height="12" rx="2"/><rect x="720" y="0" width="12" height="12" rx="2"/><rect x="738" y="0" width="12" height="12" rx="2"/><rect x="756" y="0" width="12" height="12" rx="2"/><rect x="774" y="0" width="12" height="12" rx="2"/><rect x="792" y="0" width="12" height="12" rx="2"/><rect x="810" y="0" width="12" height="12" rx="2"/>
+
+<rect width="900" height="330" rx="22" fill="url(#bg)" stroke="#30363d" stroke-width="2"/>
+
+<text x="30" y="38" fill="#00d9ff" font-family="monospace" font-size="21" font-weight="700">Contribution Snake // GAME MODE</text>
+<text x="30" y="60" fill="#8b949e" font-family="monospace" font-size="11">A REAL ANIMATED SNAKE • EAT THE CONTRIBUTION FOOD • KEEP MOVING</text>
+
+<rect x="30" y="78" width="840" height="205" rx="14" fill="#080b12" stroke="#252b38"/>
+<rect x="30" y="78" width="840" height="205" rx="14" fill="url(#grid)" opacity=".7"/>
+
+<!-- arena -->
+<rect x="55" y="92" width="790" height="177" rx="10" fill="none" stroke="#00d9ff" stroke-opacity=".22"/>
+
+<!-- food -->
+<g filter="url(#foodGlow)">
+ <circle cx="760" cy="145" r="9" fill="#ff4fd8"><animate attributeName="r" values="7;11;7" dur="1s" repeatCount="indefinite"/></circle>
+ <circle cx="760" cy="145" r="4" fill="#fff"/>
 </g>
-<g fill="url(#g)" filter="url(#glow)" opacity=".85">
-<rect x="108" y="18" width="12" height="12" rx="2"/><rect x="126" y="36" width="12" height="12" rx="2"/><rect x="270" y="18" width="12" height="12" rx="2"/><rect x="288" y="36" width="12" height="12" rx="2"/><rect x="432" y="18" width="12" height="12" rx="2"/><rect x="450" y="36" width="12" height="12" rx="2"/><rect x="630" y="18" width="12" height="12" rx="2"/><rect x="648" y="36" width="12" height="12" rx="2"/><rect x="774" y="18" width="12" height="12" rx="2"/><rect x="792" y="36" width="12" height="12" rx="2"/>
+<text x="778" y="149" fill="#ff78e3" font-family="monospace" font-size="10">+1</text>
+
+<!-- actual snake body -->
+<g fill="url(#snake)" stroke="#0b1020" stroke-width="3" filter="url(#glow)">
+ <circle r="15"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ <circle r="14"><animateMotion dur="7s" begin="-.18s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ <circle r="13"><animateMotion dur="7s" begin="-.36s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ <circle r="12"><animateMotion dur="7s" begin="-.54s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ <circle r="11"><animateMotion dur="7s" begin="-.72s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ <circle r="10"><animateMotion dur="7s" begin="-.90s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ <circle r="9"><animateMotion dur="7s" begin="-1.08s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ <circle r="8"><animateMotion dur="7s" begin="-1.26s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ <circle r="7"><animateMotion dur="7s" begin="-1.44s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
 </g>
-<path d="M6 6 C120 -25 180 90 270 42 S430 -20 540 42 S690 92 810 6" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-dasharray="14 12" filter="url(#glow)">
-<animate attributeName="stroke-dashoffset" from="0" to="-104" dur="1.4s" repeatCount="indefinite"/>
-</path>
-<circle cx="6" cy="6" r="7" fill="#00d9ff" filter="url(#glow)"><animate attributeName="cx" values="6;120;270;430;540;690;810;6" dur="5s" repeatCount="indefinite"/><animate attributeName="cy" values="6;15;42;15;42;75;6;6" dur="5s" repeatCount="indefinite"/></circle>
+
+<!-- animated head with eyes -->
+<g>
+ <circle r="16" fill="#00d9ff" stroke="#08101c" stroke-width="3" filter="url(#glow)"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ <g fill="#fff">
+  <circle cx="-5" cy="-5" r="3"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+  <circle cx="5" cy="-5" r="3"><animateMotion dur="7s" begin="-.01s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></circle>
+ </g>
 </g>
-<text x="30" y="181" fill="#8b949e" font-family="monospace" font-size="11">LOW ▪ ▪ ▪ ▪ ▪ HIGH</text>
-<text x="30" y="201" fill="#6e7681" font-family="monospace" font-size="11">STATUS: ACTIVE · CONTRIBUTIONS: 17 · CURRENT STREAK: 1 DAY</text>
-<circle cx="850" cy="194" r="6" fill="#39d353"><animate attributeName="r" values="5;9;5" dur="1.2s" repeatCount="indefinite"/></circle>
+
+<!-- score HUD -->
+<g font-family="monospace">
+ <rect x="55" y="99" width="150" height="42" rx="9" fill="#0d1117" stroke="#30363d"/>
+ <text x="70" y="116" fill="#8b949e" font-size="9">SCORE</text>
+ <text x="70" y="133" fill="#00d9ff" font-size="15" font-weight="700">017</text>
+ <rect x="215" y="99" width="150" height="42" rx="9" fill="#0d1117" stroke="#30363d"/>
+ <text x="230" y="116" fill="#8b949e" font-size="9">LENGTH</text>
+ <text x="230" y="133" fill="#9d5cff" font-size="15" font-weight="700">009</text>
+ <rect x="375" y="99" width="150" height="42" rx="9" fill="#0d1117" stroke="#30363d"/>
+ <text x="390" y="116" fill="#8b949e" font-size="9">SPEED</text>
+ <text x="390" y="133" fill="#39d353" font-size="15" font-weight="700">FAST</text>
+</g>
+
+<text x="55" y="307" fill="#8b949e" font-family="monospace" font-size="11">● SNAKE ONLINE</text>
+<text x="205" y="307" fill="#6e7681" font-family="monospace" font-size="11">HEAD → BODY → FOOD → REPEAT</text>
+<circle cx="840" cy="304" r="6" fill="#39d353"><animate attributeName="r" values="5;9;5" dur="1.2s" repeatCount="indefinite"/></circle>
 </svg>
