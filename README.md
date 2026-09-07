@@ -116,18 +116,15 @@ Creative work
 <tr>
 <td width="50%" valign="top">
 
-### 🔒 v14-ozel-oda
+<h3>v14-ozel-oda</h3>
 
-Discord.js v14 private-room project.
+<p>DJS v14 Kullanılarak En Son Yeniliklerle Donatılmış Özel Oda Botu</p>
 
-<img src="https://skillicons.dev/icons?i=js&theme=dark" width="28" alt="JavaScript"/>
+<p><img src="https://skillicons.dev/icons?i=javascript&theme=dark" width="28" alt="JavaScript"> <strong>JavaScript</strong></p>
 
-<img src="https://img.shields.io/github/stars/WaseJS/v14-ozel-oda?style=flat-square&label=stars" alt="Stars"/>
-<img src="https://img.shields.io/github/forks/WaseJS/v14-ozel-oda?style=flat-square&label=forks" alt="Forks"/>
+<p><img src="https://img.shields.io/github/stars/WaseJS/v14-ozel-oda?style=flat-square&label=stars"> <img src="https://img.shields.io/github/forks/WaseJS/v14-ozel-oda?style=flat-square&label=forks"></p>
 
-<br/><br/>
-
-<a href="https://github.com/WaseJS/v14-ozel-oda"><img src="https://img.shields.io/badge/VIEW%20PROJECT-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="View project"/></a>
+<a href="https://github.com/WaseJS/v14-ozel-oda"><img src="https://img.shields.io/badge/VIEW%20PROJECT-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="View project"></a>
 
 </td>
 </tr>
