@@ -204,18 +204,18 @@ workflow:
 
 <div align="center">
 
-<img src="./assets/instant-status.svg?v=3" width="92%" alt="Instant GitHub status"/>
+<img src="./assets/instant-status.svg?v=4" width="92%" alt="Instant GitHub status"/>
 
-<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=18&duration=1200&pause=250&color=00D9FF&center=true&vCenter=true&repeat=true&width=700&height=40&lines=SYNCING+GITHUB+DATA...;ANALYZING+ACTIVITY...;CALCULATING+STREAKS...;STATUS%3A+ACTIVE" alt="Animated GitHub status"/>
-
-<br/><br/>
-
-<a href="https://github.com/WaseJS"><img src="./assets/github-stats.svg?v=5" width="49%" alt="GitHub statistics"/></a>
-<a href="https://github.com/WaseJS"><img src="./assets/top-languages.svg?v=5" width="43%" alt="Top languages"/></a>
+<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=18&duration=900&pause=180&color=00D9FF&center=true&vCenter=true&repeat=true&width=700&height=40&lines=SYNCING+GITHUB+DATA...;ANALYZING+ACTIVITY...;CALCULATING+STREAKS...;CHECKING+REPOSITORIES...;STATUS%3A+ACTIVE" alt="Animated GitHub status"/>
 
 <br/><br/>
 
-<img src="./assets/github-streak.svg?v=5" width="70%" alt="GitHub contribution streak"/>
+<a href="https://github.com/WaseJS"><img src="./assets/github-stats.svg?v=6" width="49%" alt="GitHub statistics"/></a>
+<a href="https://github.com/WaseJS"><img src="./assets/top-languages.svg?v=6" width="43%" alt="Top languages"/></a>
+
+<br/><br/>
+
+<img src="./assets/github-streak.svg?v=6" width="70%" alt="GitHub contribution streak"/>
 
 </div>
 
@@ -225,11 +225,50 @@ workflow:
 
 <div align="center">
 
-<img src="./assets/anime-cyber.svg?v=3" width="95%" alt="Wase cyber anime visual"/>
+<table>
+<tr>
+<td align="center" width="33%">
+<img src="https://media.giphy.com/media/lsdd32H2EqjXGRhWu4/giphy.gif" width="100%" alt="Jujutsu Kaisen anime GIF"/>
+<br/>
+<sub><b>JUJUTSU KAISEN</b></sub>
+</td>
+<td align="center" width="33%">
+<img src="https://media.giphy.com/media/ggR8oaGvhUbtndQSR4/giphy.gif" width="100%" alt="Demon Slayer anime GIF"/>
+<br/>
+<sub><b>DEMON SLAYER</b></sub>
+</td>
+<td align="center" width="33%">
+<img src="https://media.giphy.com/media/3o7bupW8LM6lHKUOyc/giphy.gif" width="100%" alt="One Piece anime GIF"/>
+<br/>
+<sub><b>ONE PIECE</b></sub>
+</td>
+</tr>
+<tr>
+<td align="center" width="33%">
+<img src="https://media.giphy.com/media/3o85xwfMmhxHhNv1XK/giphy.gif" width="100%" alt="Naruto anime GIF"/>
+<br/>
+<sub><b>NARUTO</b></sub>
+</td>
+<td align="center" width="33%">
+<img src="https://media.giphy.com/media/3o6UB2lgCdImBjHkac/giphy.gif" width="100%" alt="Death Note anime GIF"/>
+<br/>
+<sub><b>DEATH NOTE</b></sub>
+</td>
+<td align="center" width="33%">
+<img src="https://media.giphy.com/media/3o7qDJ3y4JEnQaCKXG/giphy.gif" width="100%" alt="Attack on Titan anime GIF"/>
+<br/>
+<sub><b>ATTACK ON TITAN</b></sub>
+</td>
+</tr>
+</table>
 
 <br/>
 
-<sub>Cyber-anime profile visual • animated locally inside the repository.</sub>
+<img src="https://github-readme-utils.vercel.app/api/gif/anime" width="520" alt="Random real anime GIF"/>
+
+<br/>
+
+<sub>Real anime footage • Jujutsu Kaisen • Demon Slayer • One Piece • Naruto • Death Note • Attack on Titan</sub>
 
 </div>
 
@@ -239,11 +278,19 @@ workflow:
 
 <div align="center">
 
-<a href="https://github.com/WaseJS/WaseJS/actions/workflows/snake.yml"><img src="https://raw.githubusercontent.com/WaseJS/WaseJS/output/github-snake.gif?v=5" width="95%" alt="Animated GitHub contribution snake game"/></a>
+<a href="https://github.com/WaseJS/WaseJS/actions/workflows/snake.yml">
+<img src="https://raw.githubusercontent.com/WaseJS/WaseJS/output/github-snake.gif?v=6" width="95%" alt="Real animated GitHub contribution snake game"/>
+</a>
+
+<br/><br/>
+
+<a href="https://github.com/WaseJS/WaseJS/actions/workflows/snake.yml">
+<img src="https://raw.githubusercontent.com/WaseJS/WaseJS/output/github-snake-dark.svg?v=6" width="95%" alt="GitHub contribution snake SVG game"/>
+</a>
 
 <br/>
 
-<sub>Real animated Snake game generated from the GitHub contribution grid by GitHub Actions.</sub>
+<sub>Real Snake Game • generated from WaseJS contribution activity by <b>Platane/snk@v3</b> • automatically regenerated on profile updates</sub>
 
 </div>
 
