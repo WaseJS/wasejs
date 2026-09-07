@@ -1,0 +1,109 @@
+name: Update Profile README
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
+      - name: Update public project section
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = 'README.md';
+            const readme = fs.readFileSync(path, 'utf8');
+
+            const repos = await github.paginate(github.rest.repos.listForAuthenticatedUser, {
+              per_page: 100,
+              sort: 'updated',
+              direction: 'desc',
+              affiliation: 'owner'
+            });
+
+            const publicRepos = repos
+              .filter(repo =>
+                repo.owner?.login?.toLowerCase() === 'wasejs' &&
+                repo.visibility === 'public' &&
+                !repo.archived &&
+                !repo.fork &&
+                repo.name.toLowerCase() !== 'wasejs'
+              )
+              .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+              .slice(0, 8);
+
+            const escapeHtml = value => String(value ?? '')
+              .replaceAll('&', '&amp;')
+              .replaceAll('<', '&lt;')
+              .replaceAll('>', '&gt;')
+              .replaceAll('"', '&quot;');
+
+            const languageIcon = {
+              JavaScript: 'javascript',
+              TypeScript: 'typescript',
+              Python: 'python',
+              HTML: 'html',
+              CSS: 'css',
+              C#: 'cs',
+              Java: 'java',
+              C++: 'cpp',
+              PHP: 'php',
+              Go: 'go',
+              Rust: 'rust'
+            };
+
+            const cards = publicRepos.length
+              ? publicRepos.map(repo => {
+                  const language = repo.language || 'Code';
+                  const icon = languageIcon[language];
+                  const iconHtml = icon
+                    ? `<img src="https://skillicons.dev/icons?i=${icon}&theme=dark" width="28" alt="${escapeHtml(language)}">`
+                    : '💻';
+                  const description = repo.description || 'A public project by WaseJS.';
+                  return `<td width="50%" valign="top">\n\n<h3>${escapeHtml(repo.name)}</h3>\n\n<p>${escapeHtml(description)}</p>\n\n<p>${iconHtml} <strong>${escapeHtml(language)}</strong></p>\n\n<p><img src="https://img.shields.io/github/stars/${repo.full_name}?style=flat-square&label=stars"><img src="https://img.shields.io/github/forks/${repo.full_name}?style=flat-square&label=forks"></p>\n\n<a href="${repo.html_url}"><img src="https://img.shields.io/badge/VIEW%20PROJECT-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="View project"></a>\n\n</td>`;
+                }).reduce((rows, card, index) => {
+                  if (index % 2 === 0) rows.push([]);
+                  rows[rows.length - 1].push(card);
+                  return rows;
+                }, []).map(row => `<tr>\n${row.join('\n')}\n</tr>`).join('\n')
+              : `<tr><td align="center"><strong>No public projects found yet.</strong></td></tr>`;
+
+            const generated = `<!-- PUBLIC_PROJECTS_START -->\n<table>\n${cards}\n</table>\n\n<p align="center"><sub>Automatically synchronized from WaseJS public repositories.</sub></p>\n<!-- PUBLIC_PROJECTS_END -->`;
+
+            const start = '<!-- PUBLIC_PROJECTS_START -->';
+            const end = '<!-- PUBLIC_PROJECTS_END -->';
+            let next;
+
+            if (readme.includes(start) && readme.includes(end)) {
+              const startIndex = readme.indexOf(start);
+              const endIndex = readme.indexOf(end) + end.length;
+              next = readme.slice(0, startIndex) + generated + readme.slice(endIndex);
+            } else {
+              next = readme + `\n\n## 🚀 Public Projects\n\n${generated}\n`;
+            }
+
+            if (next !== readme) {
+              fs.writeFileSync(path, next);
+              await github.rest.repos.createOrUpdateFileContents({
+                owner: 'WaseJS',
+                repo: 'WaseJS',
+                path,
+                message: 'chore: sync public projects in profile README',
+                content: Buffer.from(next).toString('base64'),
+                sha: (await github.rest.repos.getContent({ owner: 'WaseJS', repo: 'WaseJS', path })).data.sha,
+                branch: 'main'
+              });
+            }
